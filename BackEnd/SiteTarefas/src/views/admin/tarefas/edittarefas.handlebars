@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Lembretes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #151569; 
+            color: white; 
+            margin: 0;
+            padding: 0;
+        }
+        .container-fluid {
+            padding: 20px;
+        }
+        .bg-light {
+            background-color: #093e72 !important; 
+            color: white;
+        }
+        .card {
+            background-color: #151569; 
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn-success {
+            background-color: #32cd32;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .btn-success:hover {
+            background-color: #228b22;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h3>Editar Lembretes:</h3>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/rota_tarefas/tarefas/editarTarefas/{{tarefa._id}}" method="POST">
+                            {{#if tarefa}}
+                            <label for="_id">ID:</label>
+                            <input type="text" id="id" name="id" readonly="true" class="form-control" value="{{tarefa.id}}">
+                            <label for="nome">Nome do Lembrete:</label>
+                            <input type="text" id="nome" name="nome" class="form-control" value="{{tarefa.nome}}">
+                            <label for="descricao">Descrição do Lembrete:</label>
+                            <input type="text" id="descricao" name="descricao" class="form-control" value="{{tarefa.descricao}}">
+                            <button type="submit" class="btn btn-success">Editar Lembrete</button>
+                            {{/if}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>

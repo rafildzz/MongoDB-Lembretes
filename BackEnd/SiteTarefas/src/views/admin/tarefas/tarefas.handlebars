@@ -1,0 +1,96 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Lembretes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #151569; 
+            color: white; 
+            margin: 0;
+            padding: 0;
+        }
+        .container-fluid {
+            padding: 20px;
+        }
+        .bg-light {
+            background-color: #093e72 !important; 
+            color: white;
+        }
+        .card {
+            background-color: #151569; 
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .card-body {
+            padding: 10px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .btn-success {
+            background-color: #32cd32; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .btn-success:hover {
+            background-color: #228b22;
+        }
+        .btn-danger {
+            background-color: #ff6347;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .btn-danger:hover {
+            background-color: #ff4500;
+        }
+        hr {
+            border: 1px solid white;
+        }
+        h2, h4, small {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h2>Lista de Lembretes</h2>
+                <hr>
+                <a href="/rota_tarefas/tarefas/add">
+                    <button class="btn btn-success">Novo Lembrete</button>
+                </a>
+                {{#each tarefas}}
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4><b>ID:</b> {{_id}}</h4>
+                        <small><b>Lembrete:</b> {{nome}}</small><br>
+                        <small><b>Descrição do Lembrete:</b> {{descricao}}</small><br>
+                        <a href="/rota_tarefas/editar_tarefas/{{_id}}">
+                            <button class="btn btn-success mt-3">Editar Lembrete</button>
+                        </a>
+                        <a href="/rota_tarefas/deletar_tarefas/{{_id}}">
+                            <button class="btn btn-danger mt-3">Deletar Lembrete</button>
+                        </a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </main>
+</body>
